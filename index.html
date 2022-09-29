@@ -60,7 +60,7 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
             <label class="form-check-label" for="exampleCheck1">Afternoon</label>
           </div>
-        <button type="submit" class="btn btn-primary">Book</button>
+        <button type="button" class="btn btn-primary" id="book">Book</button>
       </form>
   </aside>
 
@@ -71,67 +71,67 @@
         <div clas="container-fluid">
           <div class="row">
             <div class="col-4" data-status="">
-              <button type="button" data-index="0" data-status="" class="btn btn-lg custom-btn"></button>
+              <button type="button" data-desk="0" data-status="" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4" data-status="">
-              <button data-index="1" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="1" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4" data-status="">
-              <button data-index="2" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="2" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-4">
-              <button data-index="3" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="3" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-index="4" data-status="" type="button" class="btn btn-lg custom-btn" >
+              <button data-desk="4" data-status="" type="button" class="btn btn-lg custom-btn" >
                 
               </button>
             </div>
             <div class="col-4">
-              <button data-index="5" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="5" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4 offset-2">
-              <button data-index="7" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="7" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-index="8" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="8" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4 offset-2">
-              <button data-index="9" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="9" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-index="10" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="10" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4">
-              <button data-index="11" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="11" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-index="12" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="12" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button data-index="13" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="13" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-4">
-              <button data-index="14" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="14" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-index="15" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="15" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button data-index="16" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="16" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
         </div>
@@ -248,7 +248,7 @@
             e.target.classList.add("border-success", "border")
             e.target.children[0].classList.add("text-success")
             e.target.classList.remove("btn-success")
-            selectedDesks.push(e.target);
+            selectedDesks.push(e.currentTarget);
           } else if(e.target.classList.contains("border-success")){
             e.target.classList.add("btn-success")
             e.target.classList.remove("border-success", "border")
@@ -258,7 +258,7 @@
             e.target.classList.add("border-warning", "border")
             e.target.classList.remove("btn-warning")
             e.target.children[0].classList.add("text-warning")
-            selectedDesks.push(e.target);
+            selectedDesks.push(e.currentTarget);
           } else if(e.target.classList.contains("border-warning")){
             e.target.classList.add("btn-warning")
             e.target.classList.remove("border-warning", "border")
@@ -268,6 +268,30 @@
           
         })
       })
+
+    let bookButton = document.querySelector("#book")
+    bookButton.addEventListener("click", (e) => {
+      selectedDesks.forEach(desk => {
+        let index = desk.getAttribute("desk");
+        debugger
+        seatVacancy[index] = 0
+        desk.classList.remove("border", "border-success", "border-warning")
+        desk.children[0].classList.remove("text-success", "text-warning")
+        desks.classList.add("btn-secondary")
+        desk.setAttribute("disabled", true)
+      })
+      selectedDesks = []
+      let newAvailable = 0
+      let newPartial = 0
+      seatVacancy.forEach(status => {
+        if(status === 1) 
+          newAvailable++
+        else if (status === 2)
+          newPartial++
+      });
+      zones[6].available = newAvailable
+      zones[6].partial = newPartial
+    })
 
 
     let mapButtons = document.querySelectorAll("#map button");
