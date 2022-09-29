@@ -1,0 +1,23 @@
+.tooltip{
+    display: block;
+    box-shadow: 0 0 7px 0px #00000540;
+    width: fit-content;
+    position: absolute;
+    background-color: white;
+}
+
+.tooltip p{
+    margin: 0;
+}
+
+.tooltip #vacant{
+    color: green;
+}
+
+.tooltip #partial{
+    color: orange;
+}
+
+.tooltip.show{
+    opacity: 1;
+}

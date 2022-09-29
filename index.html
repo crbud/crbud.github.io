@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./css/booking-info.css">
   <link rel="stylesheet" href="./css/map.css">
   <link rel="stylesheet" href="./css/booking.css">
+  <link rel="stylesheet" href="./css/tooltip.css">
 </head>
 
 <body>
@@ -44,7 +45,11 @@
       <button type="button" class="btn btn-primary">Sign-up</button>
     </div>
   </header>
-
+  <div class="tooltip">
+    <p><strong>Section Name</strong></h2>
+    <p>Vacant: <span id="vacant">7</span>/<span class="max">14</span></p>
+    <p>Partially Booked: <span id="partial">2</span>/<span class="max">14</span></p>
+  </div>
   <aside id="booking-info"></aside>
 
   <div class="text-center hide" id="booking">
@@ -82,8 +87,7 @@
               <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-danger btn-lg custom-btn"><i
-                class="fa-solid fa-xmark"></i></button>
+              <button type="button" class="btn btn-danger btn-lg custom-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
           </div>
           <div class="row mt-3">
@@ -119,18 +123,18 @@
     <figure>
       <div class="grid">
         <div class="top-section">
-          <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
+          <button class="btn" data-zone-id="0"></button>
+          <button class="btn" data-zone-id="1"></button>
+          <button class="btn" data-zone-id="2"></button>
         </div>
         <div class="left-section">
-          <button class="btn"></button>
-          <button class="btn"></button>
+          <button class="btn" data-zone-id="3"></button>
+          <button class="btn" data-zone-id="4"></button>
         </div>
         <div class="bottom-section">
-          <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
+          <button class="btn" data-zone-id="5"></button>
+          <button class="btn" data-zone-id="6"></button>
+          <button class="btn" data-zone-id="7"></button>
         </div>
       </div>
       <img src="./img/map.svg" class="img-fluid" />
@@ -138,15 +142,103 @@
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
   <script>
+
+    let zones = [
+      {
+        id: 0,
+        name: "Digital Operations & E-Commerce I",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 1,
+        name: "Digital Operations & E-Commerce/Shopping",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 2,
+        name: "Shopping",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 3,
+        name: "Deliver on Promise",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 4,
+        name: "Digital Technology and Strategy",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 5,
+        name: "Data Analytics and Center of Excelence",
+        seats: 16,
+        available: 3,
+        partial: 4
+      },
+      {
+        id: 6,
+        name: "UDI",
+        seats: 14,
+        available: 6,
+        partial: 2
+      },
+      {
+        id: 7,
+        name: "Data Analytics and Center of Excelence II",
+        seats: 16,
+        available: 3,
+        partial: 4
+      }
+    ]
+
     let mapButtons = document.querySelectorAll("#map button");
     let logo = document.querySelector("#logo");
     const mapSection = document.querySelector("#map");
     const bookingSection = document.querySelector("#booking");
+    const tooltip = document.querySelector(".tooltip")
 
     mapButtons.forEach(button => {
       button.addEventListener("click", (e) => {
         mapSection.classList.add("hide");
         bookingSection.classList.remove("hide");
+      });
+    });
+
+    mapButtons.forEach(button => {
+      button.addEventListener("mouseover", (e) => {
+        let buttonPos = e.target.getBoundingClientRect()
+        let zoneTitle = document.querySelector(".tooltip p:first-of-type strong");
+        let availableSeats = document.querySelector("#vacant");
+        let maxSeats = document.querySelectorAll(".tooltip .max");
+        let partial= document.querySelector("#partial");
+        let id = e.target.getAttribute("data-zone-id")
+
+        tooltip.style.top = buttonPos.top + "px";
+        tooltip.style.left = (buttonPos.left + 50) + "px";
+        zoneTitle.innerHTML = zones[id].name
+        availableSeats.innerHTML = zones[id].available
+        partial.innerHTML = zones[id].partial
+        maxSeats.forEach(span => {
+          span.innerHTML = zones[id].seats
+        })
+        tooltip.classList.add("show")
+      });
+    });
+
+    mapButtons.forEach(button => {
+      button.addEventListener("mouseleave", (e) => {
+        tooltip.classList.remove("show")
       });
     });
 
