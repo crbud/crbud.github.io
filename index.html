@@ -58,60 +58,68 @@
       <div class="container" id="desks">
         <div clas="container-fluid">
           <div class="row">
-            <div class="col-4">
-              <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
+            <div class="col-4" data-status="">
+              <button type="button" data-index="0" data-status="" class="btn btn-lg custom-btn"></button>
             </div>
-            <div class="col-4">
-              <button type="button" class="btn btn-secondary btn-lg custom-btn" disabled><i
+            <div class="col-4" data-status="">
+              <button data-index="1" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="col-4">
-              <button type="button" class="btn btn-warning btn-lg custom-btn"><i class="fa-solid fa-clock"></i></button>
+            <div class="col-4" data-status="">
+              <button data-index="2" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-4">
-              <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
+              <button data-index="3" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-secondary btn-lg custom-btn" disabled>
-                <i class="fa-solid fa-xmark"></i>
+              <button data-index="4" data-status="" type="button" class="btn btn-lg custom-btn" >
+                
               </button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-warning btn-lg custom-btn"><i class="fa-solid fa-clock"></i></button>
+              <button data-index="5" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4 offset-2">
-              <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
+              <button data-index="7" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-danger btn-lg custom-btn"><i class="fa-solid fa-xmark"></i></button>
+              <button data-index="8" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-4 offset-2">
+              <button data-index="9" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+            </div>
+            <div class="col-4">
+              <button data-index="10" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4">
-              <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
+              <button data-index="11" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-secondary btn-lg custom-btn" disabled><i
+              <button data-index="12" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-warning btn-lg custom-btn"><i class="fa-solid fa-clock"></i></button>
+              <button data-index="13" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-4">
-              <button type="button" class="btn btn-success btn-lg custom-btn"><i class="fa-solid fa-check"></i></button>
+              <button data-index="14" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-secondary btn-lg custom-btn" disabled><i
+              <button data-index="15" data-status="" type="button" class="btn btn-lg custom-btn" ><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button type="button" class="btn btn-warning btn-lg custom-btn"><i class="fa-solid fa-clock"></i></button>
+              <button data-index="16" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
         </div>
@@ -201,6 +209,29 @@
         partial: 4
       }
     ]
+    
+
+
+      let seatVacancy = [0,0,1,0,0,2,0,0,0,1,1,1,1,1,1,1]
+      let buttons = document.querySelectorAll("#desks button");
+      buttons.forEach((button, index) => {
+        switch (seatVacancy[index]){
+          case 0:
+            button.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+            button.classList.add("btn-secondary")
+            button.setAttribute("disabled", true)
+            break;
+          case 1:
+            button.innerHTML = '<i class="fa-solid fa-check"></i>'
+            button.classList.add("btn-success")
+            break;
+          default: 
+          button.innerHTML = '<i class="fa-solid fa-clock"></i>'
+          button.classList.add("btn-warning")
+          break;
+        }
+      })
+
 
     let mapButtons = document.querySelectorAll("#map button");
     let logo = document.querySelector("#logo");
