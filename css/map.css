@@ -1,0 +1,42 @@
+.grid{
+    position: relative;
+}
+.top-section{
+    position: absolute;
+    left: 13%;
+    right: 0;
+    margin-top: 60px;
+    padding-left: 13%;
+}
+
+.grid button{
+    border: 5px solid #ec9bc1;
+    font-size: 0.8em;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    padding: 16px;
+}
+
+.grid button:hover{
+    background-color: #ec9bc1;
+    border-color: #ec9bc1;
+}
+
+.top-section button:first-of-type{
+    margin-right: 7%;
+    margin-left: 8%;
+}
+
+.top-section button:nth-of-type(2){
+    padding: 16px;
+    margin-right: 11%;
+    margin-left: 13%;
+}
+
+.top-section button:nth-of-type(3){
+    padding: 16px;
+    margin-right: 11%;
+    margin-left: 8%;
+    margin-top: 15px;
+}
