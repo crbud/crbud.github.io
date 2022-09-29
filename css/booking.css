@@ -1,0 +1,22 @@
+.btn-danger.custom-btn {
+    background-color: #F97C89;
+  }
+
+  .btn-warning.custom-btn {
+    background-color: #FEAD77;
+  }
+
+  .btn-success.custom-btn {
+    background-color: #9EB356;
+    border: none
+  }
+
+  .custom-btn {
+    border: none;
+    display: block;
+    width: 100%;
+  }
+
+  .custom-btn i{
+    color: white;
+  }
