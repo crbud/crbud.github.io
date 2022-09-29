@@ -32,13 +32,7 @@
         <use xlink:href="#bootstrap"></use>
       </svg>
     </a>
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-    </ul>
+   
 
     <div class="col-md-3 text-end">
       <button type="button" class="btn btn-outline-primary me-2">Login</button>
@@ -50,7 +44,25 @@
     <p>Vacant: <span id="vacant">7</span>/<span class="max">14</span></p>
     <p>Partially Booked: <span id="partial">2</span>/<span class="max">14</span></p>
   </div>
-  <aside id="booking-info"></aside>
+  <aside id="booking-info">
+    <form>
+        <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Pick a date</label>
+              <input type="date" id="dateId" class="form-control" required/>
+            </div>
+          </form>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+          <label class="form-check-label" for="exampleCheck1">Morning</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+            <label class="form-check-label" for="exampleCheck1">Afternoon</label>
+          </div>
+        <button type="submit" class="btn btn-primary">Book</button>
+      </form>
+  </aside>
 
   <div class="text-center hide" id="booking">
     <div class="text-center">
@@ -277,6 +289,20 @@
       mapSection.classList.remove("hide");
       bookingSection.classList.add("hide");
     });
+
+
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+
+    document.getElementById("dateId").value = today;
+  
   </script>
 </body>
 
