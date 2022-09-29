@@ -5,7 +5,7 @@
     position: absolute;
     left: 13%;
     right: 0;
-    margin-top: 10px;
+    margin-top: 15px;
     padding-left: 13%;
 }
 
@@ -21,17 +21,10 @@
 
 .bottom-section{
     position: absolute;
-    top: 260px;
-}
-
-.left-section button:first-of-type{
-    margin-left: 19%;
-    margin-top: 70px;
-}
-
-.left-section button:last-of-type{
-    margin-left: -4%;
-    margin-top: 259px;
+    top: 330px;
+    bottom: 0;
+    left: 20%;
+    right: 50%;
 }
 
 .grid button{
@@ -41,6 +34,139 @@
     height: 10px;
     border-radius: 100%;
     padding: 16px;
+}
+
+.bottom-section button:first-of-type{
+    margin-top: 154px;
+    margin-left: 8%;
+}
+
+.bottom-section button:nth-of-type(2){
+    margin-top: -87px;
+    margin-left: 15%;
+}
+
+.bottom-section button:nth-of-type(3){
+    margin-top: -170px;
+    margin-left: 15%;
+}
+
+
+@media screen and (min-width: 1400px) {
+    .left-section button:first-of-type{
+        margin-left: 19%;
+        margin-top: 70px;
+    } 
+
+    .left-section button:last-of-type{
+        margin-left: -4%;
+        margin-top: 332px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    .left-section button:first-of-type{
+        margin-left: 19%;
+        margin-top: 70px;
+    } 
+
+    .left-section button:last-of-type{
+        margin-left: -4%;
+        margin-top: 259px;
+    }
+
+    .bottom-section button:first-of-type{
+        margin-top: 83px;
+    }
+    
+    .bottom-section button:nth-of-type(2){
+        margin-top: -132px;
+        margin-left: 15%;
+    }
+    
+    .bottom-section button:nth-of-type(3){
+        margin-top: -208px;
+        margin-left: 12%;
+    }
+    
+}
+
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+
+    .grid button{
+        border: 5px solid #ec9bc1;
+        font-size: 0.8em;
+        width: 8px;
+        height: 8px;
+        padding: 12px;
+    }
+
+    .left-section button:first-of-type{
+        margin-left: 18%;
+        margin-top: 45px;
+    } 
+
+    .left-section button:last-of-type{
+        margin-left: -3%;
+        margin-top: 217px;
+    }
+
+    .bottom-section button:first-of-type{
+        margin-top: 16px;
+    }
+    
+    .bottom-section button:nth-of-type(2){
+        margin-top: -161px;
+        margin-left: 15%;
+    }
+    
+    .bottom-section button:nth-of-type(3){
+        margin-top: -215px;
+        margin-left: 12%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .top-section{
+        margin-top: 5px;
+    }
+
+    .grid button{
+        border: 5px solid #ec9bc1;
+        font-size: 0.8em;
+        width: 8px;
+        height: 8px;
+        padding: 8px;
+    }
+
+    .left-section button:first-of-type{
+        margin-left: 18%;
+        margin-top: 23px;
+    } 
+
+    .left-section button:last-of-type{
+        margin-left: -4%;
+        margin-top: 163px;
+    }
+
+    .bottom-section{
+        top: 156px;
+    }
+
+    .bottom-section button:first-of-type{
+        margin-top: 103px;
+    }
+    
+    .bottom-section button:nth-of-type(2){
+        margin-top: -37px;
+        margin-left: 15%;
+    }
+    
+    .bottom-section button:nth-of-type(3){
+        margin-top: -86px;
+        margin-left: 9%;
+    }
 }
 
 .grid button:hover{
@@ -54,13 +180,11 @@
 }
 
 .top-section button:nth-of-type(2){
-    padding: 16px;
     margin-right: 11%;
     margin-left: 13%;
 }
 
 .top-section button:nth-of-type(3){
-    padding: 16px;
     margin-right: 11%;
     margin-left: 8%;
     margin-top: 15px;
