@@ -19,7 +19,7 @@
 
 <body>
   <header
-    class="container-fluid d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    class="container-fluid d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4-bottom">
 
     <nav class="navbar">
       <a class="navbar-brand col col-3 offset-2" href="#" id="logo">
@@ -223,7 +223,7 @@
     ]
     
 
-
+      let selectedDesks = []
       let seatVacancy = [0,0,1,0,0,2,0,0,0,1,1,1,1,1,1,1]
       let buttons = document.querySelectorAll("#desks button");
       buttons.forEach((button, index) => {
@@ -242,6 +242,31 @@
           button.classList.add("btn-warning")
           break;
         }
+
+        button.addEventListener("click", (e) => {
+          if(e.target.classList.contains("btn-success")){
+            e.target.classList.add("border-success", "border")
+            e.target.children[0].classList.add("text-success")
+            e.target.classList.remove("btn-success")
+            selectedDesks.push(e.target);
+          } else if(e.target.classList.contains("border-success")){
+            e.target.classList.add("btn-success")
+            e.target.classList.remove("border-success", "border")
+            e.target.children[0].classList.remove("text-success")
+            selectedDesks.remove(selectedDesks.indexOf(e.target));
+          }else if(e.target.classList.contains("btn-warning")){
+            e.target.classList.add("border-warning", "border")
+            e.target.classList.remove("btn-warning")
+            e.target.children[0].classList.add("text-warning")
+            selectedDesks.push(e.target);
+          } else if(e.target.classList.contains("border-warning")){
+            e.target.classList.add("btn-warning")
+            e.target.classList.remove("border-warning", "border")
+            selectedDesks.remove(selectedDesks.indexOf(e.target));
+            e.target.children[0].classList.remove("text-warning")
+          }
+          
+        })
       })
 
 
