@@ -44,7 +44,7 @@
     <p>Vacant: <span id="vacant">7</span>/<span class="max">14</span></p>
     <p>Partially Booked: <span id="partial">2</span>/<span class="max">14</span></p>
   </div>
-  <aside id="booking-info">
+  <aside id="booking-info" style="display: none;">
     <form>
         <form>
             <div class="form-group">
@@ -272,6 +272,7 @@
 
     let mapButtons = document.querySelectorAll("#map button");
     let logo = document.querySelector("#logo");
+    var bookingInfoForm = document.getElementById("booking-info");
     const mapSection = document.querySelector("#map");
     const bookingSection = document.querySelector("#booking");
     const tooltip = document.querySelector(".tooltip")
@@ -280,6 +281,7 @@
       button.addEventListener("click", (e) => {
         mapSection.classList.add("hide");
         bookingSection.classList.remove("hide");
+        bookingInfoForm.style.display = "block";
       });
     });
 
@@ -316,6 +318,7 @@
     logo.addEventListener("click", (e) => {
       mapSection.classList.remove("hide");
       bookingSection.classList.add("hide");
+      bookingInfoForm.style.display = "none";
     });
 
 
