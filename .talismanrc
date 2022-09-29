@@ -2,3 +2,8 @@ fileignoreconfig:
 - filename: index.html
   checksum: 33890ba186a9e892437c9a886669221f5ae0a29e93b967b0d88bdfe7397d5fbb
 version: ""
+
+fileignoreconfig:
+- filename: index.html
+  checksum: 84449722f0c0e6c7b5ecb7903fca63e05c0e699a77ba165a69cd2968f1901742
+version: ""
