@@ -209,9 +209,9 @@
       {
         id: 6,
         name: "UDI",
-        seats: 14,
-        available: 6,
-        partial: 2
+        seats: 16,
+        available: 7,
+        partial: 1
       },
       {
         id: 7,
@@ -282,6 +282,9 @@
     mapButtons.forEach(button => {
       button.addEventListener("mouseleave", (e) => {
         tooltip.classList.remove("show")
+        let buttonPos = e.target.getBoundingClientRect()
+        tooltip.style.top = "0px";
+        tooltip.style.left = "0px";
       });
     });
 

@@ -4,6 +4,7 @@
     width: fit-content;
     position: absolute;
     background-color: white;
+    display: none;
 }
 
 .tooltip p{
@@ -20,4 +21,5 @@
 
 .tooltip.show{
     opacity: 1;
+    display: block;
 }
