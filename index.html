@@ -33,11 +33,6 @@
       </svg>
     </a>
 
-
-    <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Login</button>
-      <button type="button" class="btn btn-primary">Sign-up</button>
-    </div>
   </header>
   <div class="tooltip">
     <p><strong>Section Name</strong></h2>
@@ -45,13 +40,7 @@
     <p>Partially Booked: <span id="partial">2</span>/<span class="max">14</span></p>
   </div>
   <aside id="booking-info" style="display: none;">
-    <form>
-      <form>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Pick a date</label>
-          <input type="date" id="dateId" class="form-control" required />
-        </div>
-      </form>
+    <form class="container">
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
         <label class="form-check-label" for="exampleCheck1">Morning</label>
@@ -64,9 +53,13 @@
     </form>
   </aside>
 
-  <div class="text-center hide" id="booking">
-    <div class="text-center">
-      <h2>UDI Zone</h2>
+  <div class="container hide" id="booking">
+      <div class="row">
+        <div class="col col-3">
+          <input type="date" id="dateId" class="form-control" required />
+        </div>
+        <h2 class="col col-6 text-center">UDI Zone</h2>
+      </div>
       <div class="container" id="desks">
         <div clas="container-fluid">
           <div class="row">
@@ -136,10 +129,20 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
   <section id="map" class="container">
-    <h2 class="text-center">Digital Hub</h2>
+    <div class="row title">
+      <div class="col col-3">
+        <input type="date" id="dateId-main" class="form-control" required />
+      </div>
+      <h2 class="text-center col col-6">Digital Hub</h2>
+      <div class="col col-3">
+        <select name="" class="form-select" id="">
+          <option value="vacant">Vacancy</option>
+          <option value="predict">Prediction</option>
+        </select>
+      </div>
+    </div>
     <figure>
       <div class="grid">
         <div class="top-section">
@@ -159,6 +162,13 @@
       </div>
       <img src="./img/map.svg" class="img-fluid" />
     </figure>
+    <div class="subtitle hide" id="subtitle">
+      <ul>
+        <li><span class="success"><i class="fa-solid fa-mug-hot"></i></span>Bring your friends!</li>
+        <li><span class="warning"><i class="fa-solid fa-head-side-mask"></i></span>You will not be alone</li>
+        <li><span class="danger"><i class="fa-solid fa-poo-storm"></i></span>Ready to fight?</li>
+      </ul>
+    </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
   <script>
@@ -168,7 +178,7 @@
         id: 0,
         name: "Digital Operations & E-Commerce I",
         seats: 16,
-        available: 3,
+        available: 15,
         partial: 4
       },
       {
@@ -186,7 +196,7 @@
         partial: 4
       },
       {
-        id: 3,
+        id: 12,
         name: "Deliver on Promise",
         seats: 16,
         available: 3,
@@ -224,6 +234,7 @@
     let bookedDesks = []
     let selectedDesks = []
     let seatVacancy = [0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+    let select = document.querySelector("select")
 
     let mapButtons = document.querySelectorAll("#map button");
     let logo = document.querySelector("#logo");
@@ -241,6 +252,21 @@
     });
 
     mapButtons.forEach(button => {
+      let buttonIndex = button.getAttribute("data-zone-id")
+      let status = "";
+      let icon = ""
+      if(zones[buttonIndex].available <= zones[buttonIndex].seats/4){
+        status = "danger"
+        icon = "poo-storm"
+      } else if(zones[buttonIndex].available <= zones[buttonIndex].seats/2){
+        status = "warning"
+        icon = "head-side-mask"
+      } else {
+        status = "success"
+        icon = "mug-hot"
+      }
+      button.classList.add(status)
+      button.innerHTML = "<i class='fa-solid fa-" + icon + "'></i>"
       button.addEventListener("mouseover", (e) => {
         let buttonPos = e.target.getBoundingClientRect()
         let zoneTitle = document.querySelector(".tooltip p:first-of-type strong");
@@ -259,9 +285,7 @@
         })
         tooltip.classList.add("show")
       });
-    });
 
-    mapButtons.forEach(button => {
       button.addEventListener("mouseleave", (e) => {
         tooltip.classList.remove("show")
         let buttonPos = e.target.getBoundingClientRect()
@@ -269,6 +293,20 @@
         tooltip.style.left = "0px";
       });
     });
+
+    select.addEventListener("change", (e) => {
+      if(e.target.value == "vacant") {
+        document.querySelector("#subtitle").classList.add("hide")
+        document.querySelectorAll(".predict").forEach(button => {
+          button.classList.remove("predict");
+        })
+      } else {
+        document.querySelector("#subtitle").classList.remove("hide")
+        document.querySelectorAll(".grid button").forEach(button => {
+          button.classList.add("predict")
+        })
+      }
+    })
 
     logo.addEventListener("click", (e) => {
       mapSection.classList.remove("hide");
@@ -288,6 +326,7 @@
     var today = year + "-" + month + "-" + day;
 
     document.getElementById("dateId").value = today;
+    document.getElementById("dateId-main").value = today;
 
   </script>
   <script src="./js/booking.js"></script>

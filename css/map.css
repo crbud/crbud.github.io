@@ -36,6 +36,13 @@
     padding: 16px;
 }
 
+.grid button i{
+    margin-left: -20px;
+    margin-top: -20px;
+    display: none;
+    font-size: 3em;
+}
+
 .bottom-section button:first-of-type{
     margin-top: 154px;
     margin-left: 8%;
@@ -62,9 +69,19 @@
         margin-left: -4%;
         margin-top: 332px;
     }
+
+    .subtitle{
+        top: 525px;
+    }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .subtitle{
+        top: 440px;
+        left: 40%
+    }
+
     .left-section button:first-of-type{
         margin-left: 19%;
         margin-top: 70px;
@@ -92,6 +109,10 @@
 }
 
 @media screen and (min-width: 993px) and (max-width: 1199px) {
+
+    .subtitle{
+        top: 400px;
+    }
 
     .grid button{
         border: 5px solid #ec9bc1;
@@ -127,6 +148,10 @@
 }
 
 @media screen and (max-width: 992px) {
+
+    .subtitle{
+        top: 350px
+    }
 
     .top-section{
         margin-top: 5px;
@@ -174,6 +199,47 @@
     border-color: #ec9bc1;
 }
 
+.grid button:hover{
+    background-color: #ec9bc1;
+    border-color: #ec9bc1;
+}
+
+.grid button:hover.predict{
+    background-color: transparent;
+}
+
+.grid button.warning.predict i{
+    color: #FEAD77;
+}
+
+.grid button.warning.predict:hover i{
+    color: #ffc8a3;
+}
+
+.grid button.success.predict i{
+    color: #9EB356;
+}
+
+.grid button.success.predict:hover i{
+    color: #c4d785;
+}
+
+.grid button.danger.predict i{
+    color: #dc3545;
+}
+
+.grid button.danger.predict:hover i{
+    color: #f96775;
+}
+
+.grid button.predict {
+    border-color: transparent;
+}
+
+.grid button.predict i {
+    display: inline-block;
+}
+
 .top-section button:first-of-type{
     margin-right: 7%;
     margin-left: 8%;
@@ -188,4 +254,32 @@
     margin-right: 11%;
     margin-left: 8%;
     margin-top: 15px;
+}
+
+.subtitle{
+    position: absolute;
+    left: 67%;
+}
+
+.subtitle ul li{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.6em;
+}
+
+.subtitle ul li span{
+    display: inline-block;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+.subtitle ul li span.success i{
+    color: #9EB356;
+}
+.subtitle ul li span.warning i{
+    color: #FEAD77;
+}
+.subtitle ul li span.danger i{
+    color: #dc3545;
 }

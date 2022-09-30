@@ -1,4 +1,4 @@
-#booking h2{
+#booking > .row:first-of-type{
   margin: 25px 0;
 }
 
