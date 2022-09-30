@@ -41,3 +41,11 @@ header > .row {
 #logo img{
     margin-top: 7px;
 }
+
+.nav-item button{
+    color: black;
+}
+
+.nav-item.active button, .nav-item:hover button {
+    text-decoration: underline;
+}
