@@ -1,3 +1,43 @@
 .hide {
     display: none;
 }
+
+
+header ul{
+    display: flex;
+    margin-bottom: 0!important;
+}
+
+header ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+header ul li button{
+    border: none;
+    background-color: transparent;
+    padding: 15px 10px;
+}
+
+header > .row {
+    margin: none;
+    width: 100%;
+}
+
+.account {
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-top: 8px;
+    padding: 0;
+    background-color: transparent;
+}
+
+.account i {
+    font-size: 2em;
+    color: white;
+}
+
+#logo img{
+    margin-top: 7px;
+}

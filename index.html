@@ -21,18 +21,20 @@
   <header
     class="container-fluid d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4-bottom">
 
-    <nav class="navbar">
-      <a class="navbar-brand col col-3 offset-2" href="#" id="logo">
-        <img src="logo.svg" alt="" class="img-fluid">
-      </a>
-    </nav>
-
-    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-    </a>
-
+      <div class="row">
+        <a class="navbar-brand col col-1 offset-2" href="#" id="logo">
+          <img src="logo.svg" alt="" class="img-fluid">
+        </a>
+        <ul class="col-8 justify-content-end flex">
+          <li class="nav-item active"><button>Office</button></li>
+          <li class="nav-item active"><button>My bookings</button></li>
+          <li class="nav-item"><button>Statistics</button>
+          </li>
+        </ul>
+        <div class="col col-1">
+          <button class="account"><i class="fa-solid fa-circle-user"></i></button>
+        </div>
+      </div>
   </header>
   <div class="tooltip">
     <p><strong>Section Name</strong></h2>
