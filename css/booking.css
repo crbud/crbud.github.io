@@ -1,26 +1,45 @@
+#booking h2{
+  margin: 25px 0;
+}
+
 .btn-danger.custom-btn {
-    background-color: #F97C89;
-  }
+  background-color: #F97C89;
+}
 
-  .btn-warning.custom-btn {
-    background-color: #FEAD77;
-  }
+.btn-warning.custom-btn {
+  background-color: #FEAD77;
+}
 
-  .btn-success.custom-btn {
-    background-color: #9EB356;
-    border: none
-  }
+.btn-success.custom-btn {
+  background-color: #9EB356;
+  border: none
+}
 
-  .custom-btn {
-    border: none;
-    display: block;
-    width: 100%;
-  }
+.custom-btn {
+  border: none;
+  display: block;
+  width: 100%;
+}
 
-  .custom-btn i{
-    color: white;
-  }
+.custom-btn i {
+  color: white;
+}
 
-  .border:not(btn-success,btn-warning,btn-secondary) {
-    border-width: 5px!important;
-  }
+#booking .btn {
+  border-width: 5px !important;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.booked {
+  background-color: rgb(255, 202, 212);
+  border-color: rgba(255, 202, 212, 0);
+}
+
+.booked:hover {
+  border: 5px solid rgb(255, 202, 212) !important;
+}
+
+.booked:hover i {
+  color: rgb(255, 202, 212);
+}

@@ -32,7 +32,7 @@
         <use xlink:href="#bootstrap"></use>
       </svg>
     </a>
-   
+
 
     <div class="col-md-3 text-end">
       <button type="button" class="btn btn-outline-primary me-2">Login</button>
@@ -46,27 +46,27 @@
   </div>
   <aside id="booking-info" style="display: none;">
     <form>
-        <form>
-            <div class="form-group">
-              <label for="formGroupExampleInput">Pick a date</label>
-              <input type="date" id="dateId" class="form-control" required/>
-            </div>
-          </form>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
-          <label class="form-check-label" for="exampleCheck1">Morning</label>
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Pick a date</label>
+          <input type="date" id="dateId" class="form-control" required />
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
-            <label class="form-check-label" for="exampleCheck1">Afternoon</label>
-          </div>
-        <button type="button" class="btn btn-primary" id="book">Book</button>
       </form>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+        <label class="form-check-label" for="exampleCheck1">Morning</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+        <label class="form-check-label" for="exampleCheck1">Afternoon</label>
+      </div>
+      <button type="button" class="btn btn-primary" id="book">Book</button>
+    </form>
   </aside>
 
   <div class="text-center hide" id="booking">
     <div class="text-center">
-      <h2>UDI Territory</h2>
+      <h2>UDI Zone</h2>
       <div class="container" id="desks">
         <div clas="container-fluid">
           <div class="row">
@@ -74,7 +74,7 @@
               <button type="button" data-desk="0" data-status="" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4" data-status="">
-              <button data-desk="1" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="1" data-status="" type="button" class="btn btn-lg custom-btn"><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4" data-status="">
@@ -86,8 +86,8 @@
               <button data-desk="3" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-desk="4" data-status="" type="button" class="btn btn-lg custom-btn" >
-                
+              <button data-desk="4" data-status="" type="button" class="btn btn-lg custom-btn">
+
               </button>
             </div>
             <div class="col-4">
@@ -96,42 +96,42 @@
           </div>
           <div class="row mt-3">
             <div class="col-4 offset-2">
-              <button data-desk="7" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="6" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-desk="8" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="7" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4 offset-2">
-              <button data-desk="9" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="8" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-desk="10" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="9" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-4">
-              <button data-desk="11" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="10" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-desk="12" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="11" data-status="" type="button" class="btn btn-lg custom-btn"><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button data-desk="13" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="12" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-4">
-              <button data-desk="14" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="13" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
             <div class="col-4">
-              <button data-desk="15" data-status="" type="button" class="btn btn-lg custom-btn" ><i
+              <button data-desk="14" data-status="" type="button" class="btn btn-lg custom-btn"><i
                   class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="col-4">
-              <button data-desk="16" data-status="" type="button" class="btn btn-lg custom-btn"></button>
+              <button data-desk="15" data-status="" type="button" class="btn btn-lg custom-btn"></button>
             </div>
           </div>
         </div>
@@ -208,9 +208,9 @@
       },
       {
         id: 6,
-        name: "UDI",
+        name: "UDI Zone",
         seats: 16,
-        available: 7,
+        available: 8,
         partial: 1
       },
       {
@@ -221,78 +221,9 @@
         partial: 4
       }
     ]
-    
-
-      let selectedDesks = []
-      let seatVacancy = [0,0,1,0,0,2,0,0,0,1,1,1,1,1,1,1]
-      let buttons = document.querySelectorAll("#desks button");
-      buttons.forEach((button, index) => {
-        switch (seatVacancy[index]){
-          case 0:
-            button.innerHTML = '<i class="fa-solid fa-xmark"></i>'
-            button.classList.add("btn-secondary")
-            button.setAttribute("disabled", true)
-            break;
-          case 1:
-            button.innerHTML = '<i class="fa-solid fa-check"></i>'
-            button.classList.add("btn-success")
-            break;
-          default: 
-          button.innerHTML = '<i class="fa-solid fa-clock"></i>'
-          button.classList.add("btn-warning")
-          break;
-        }
-
-        button.addEventListener("click", (e) => {
-          if(e.target.classList.contains("btn-success")){
-            e.target.classList.add("border-success", "border")
-            e.target.children[0].classList.add("text-success")
-            e.target.classList.remove("btn-success")
-            selectedDesks.push(e.currentTarget);
-          } else if(e.target.classList.contains("border-success")){
-            e.target.classList.add("btn-success")
-            e.target.classList.remove("border-success", "border")
-            e.target.children[0].classList.remove("text-success")
-            selectedDesks.remove(selectedDesks.indexOf(e.target));
-          }else if(e.target.classList.contains("btn-warning")){
-            e.target.classList.add("border-warning", "border")
-            e.target.classList.remove("btn-warning")
-            e.target.children[0].classList.add("text-warning")
-            selectedDesks.push(e.currentTarget);
-          } else if(e.target.classList.contains("border-warning")){
-            e.target.classList.add("btn-warning")
-            e.target.classList.remove("border-warning", "border")
-            selectedDesks.remove(selectedDesks.indexOf(e.target));
-            e.target.children[0].classList.remove("text-warning")
-          }
-          
-        })
-      })
-
-    let bookButton = document.querySelector("#book")
-    bookButton.addEventListener("click", (e) => {
-      selectedDesks.forEach(desk => {
-        let index = desk.getAttribute("desk");
-        debugger
-        seatVacancy[index] = 0
-        desk.classList.remove("border", "border-success", "border-warning")
-        desk.children[0].classList.remove("text-success", "text-warning")
-        desks.classList.add("btn-secondary")
-        desk.setAttribute("disabled", true)
-      })
-      selectedDesks = []
-      let newAvailable = 0
-      let newPartial = 0
-      seatVacancy.forEach(status => {
-        if(status === 1) 
-          newAvailable++
-        else if (status === 2)
-          newPartial++
-      });
-      zones[6].available = newAvailable
-      zones[6].partial = newPartial
-    })
-
+    let bookedDesks = []
+    let selectedDesks = []
+    let seatVacancy = [0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
 
     let mapButtons = document.querySelectorAll("#map button");
     let logo = document.querySelector("#logo");
@@ -315,7 +246,7 @@
         let zoneTitle = document.querySelector(".tooltip p:first-of-type strong");
         let availableSeats = document.querySelector("#vacant");
         let maxSeats = document.querySelectorAll(".tooltip .max");
-        let partial= document.querySelector("#partial");
+        let partial = document.querySelector("#partial");
         let id = e.target.getAttribute("data-zone-id")
 
         tooltip.style.top = buttonPos.top + "px";
@@ -357,8 +288,9 @@
     var today = year + "-" + month + "-" + day;
 
     document.getElementById("dateId").value = today;
-  
+
   </script>
+  <script src="./js/booking.js"></script>
 </body>
 
 </html>
