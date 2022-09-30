@@ -166,8 +166,8 @@
     </figure>
     <div class="subtitle hide" id="subtitle">
       <ul>
-        <li><span class="success"><i class="fa-solid fa-mug-hot"></i></span>Bring your friends!</li>
-        <li><span class="warning"><i class="fa-solid fa-head-side-mask"></i></span>You will not be alone</li>
+        <li><span class="success"><i class="fa-solid fa-sun"></i></span>Bring your friends!</li>
+        <li><span class="warning"><i class="fa-solid fa-cloud"></i></span>You will not be alone</li>
         <li><span class="danger"><i class="fa-solid fa-poo-storm"></i></span>Ready to fight?</li>
       </ul>
     </div>
@@ -262,10 +262,10 @@
         icon = "poo-storm"
       } else if(zones[buttonIndex].available <= zones[buttonIndex].seats/2){
         status = "warning"
-        icon = "head-side-mask"
+        icon = "cloud"
       } else {
         status = "success"
-        icon = "mug-hot"
+        icon = "sun"
       }
       button.classList.add(status)
       button.innerHTML = "<i class='fa-solid fa-" + icon + "'></i>"
